@@ -29,7 +29,7 @@
 - `Transformers.kt`: Contains transformers to modify XML structures.
 - `Adapters.kt`: Contains adapters to adapt XML elements for specific use cases.
 - `MicroXPath.kt`: Provides simplified XPath functionalities to find XML elements.
-- `XMLDocumentTest.kt`: Contains unit tests to verify the functionality of the `XMLDocument` and related classes.
+- `MyProjectTestCases.kt`: Contains unit tests to verify the functionality of the `XMLDocument` and related classes.
 
 ## Installation
 
