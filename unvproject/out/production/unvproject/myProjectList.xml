@@ -1,0 +1,95 @@
+        Classes should allow:
+        1. add and remove entities          //done
+        2. add, remove, and change attributes on entities      //done
+        3. access the parent entity and child entities of an entity // done
+        4. pretty print in String format, and written to file  // done
+        5. scanning the document with visitor objects (Visitor)
+        6. add attributes globally to the document
+        (providing entity name, attribute name and value)
+        7. Renaming entities globally to the document
+        (providing old name and new name)
+        8. Renaming attributes globally to the document
+        (providing name of the entity, and old name and new name of the attribute)
+        9. removing entities globally from the document
+        (providing name)
+        10. removing attributes globally from the document
+        (providing entity name, and attribute name
+
+
+
+
+        Phase 2 - Classes-XML Mapping
+        Objective: Develop a way to automatically obtain XML entities from
+        objects, based on the structure of the respective classes.
+        Attention: the direct generation of XML text from objects is not intended, but rather the
+        instantiation of model classes. Working with the model allows for easy
+        manipulation subsequent to automatic acquisition, when compared with text.
+        The model developed in Phase 1 allows the manipulation of XML documents in
+        memory, however only via manual instantiation. At this stage the idea is that the classes
+        of the model can be automatically instantiated from objects, offering
+        some customization flexibility through class annotations, allowing:
+        ● change identifier names when translating to XML
+        ● determine how object attributes are translated (XML attribute or
+        entity)
+        ● delete object attributes
+
+        The following examples demonstrate the desired flexibility in obtaining XML (omitting
+        the notes to be developed in the project).
+
+        Classe class ComponenteAvaliacao(val nome: String, val peso: Int)
+        Objeto val c = ComponenteAvaliacao("Quizzes", "20")
+        XML <componente nome="Quizzes" peso="20"/>
+        Classe class FUC(
+        val codigo: String,
+        val nome: String,
+        val ects: Double,
+        val observacoes: String,
+            val avaliacao: List<ComponenteAvaliacao>)
+                Objeto val f = FUC("M4310", "Programação Avançada", 6.0, "la la...",
+                listOf(
+                ComponenteAvaliacao("Quizzes", "20"),
+                ComponenteAvaliacao("Projeto", "80")
+                )
+                )
+            XML <fuc codigo="M4310">
+                <nome>Programação Avançada</nome>
+                <ects>6.0</ects>
+                <avaliacao>
+                    <componente nome="Quizzes" peso="20"/>
+                    <componente nome="Projeto" peso="80"/>
+                </avaliacao>
+            </fuc>
+
+        Although the previous examples illustrate some possibilities for customizing the
+        translating objects into XML, it will never be possible to foresee all the possible ways of
+        translation. For example, it could be a goal to translate FUC objects as follows.
+
+        <fuc codigo="M4310">
+            <ects>6.0</ects>
+            <nome>Programação Avançada</nome>
+            <componente nome="Quizzes" peso="20%"/>
+            <componente nome="Projeto" peso="80%"/>
+        </fuc>
+
+        Note that the order of attributes does not correspond to that of the class, the list of components of
+        evaluation no longer has an entity, and that the textual value of the weight is not simply the
+        integer in String.
+
+        In order to have a way of customizing the text that is inserted into the XML resulting from
+        attribute values of objects, an annotation is intended to indicate a class that
+        implements the transformation to be done to the string by default (e.g. adding “%”).
+
+        class ComponenteAvaliacao(
+        val nome: String,
+        @XmlString(AddPercentage::class)
+        val peso: Int
+        )
+
+        In order to have a form of post-mapping customization, an annotation is intended
+        that associates an adapter that makes free changes to the XML entity after mapping
+        automatic (e.g., changing the order of XML attributes).
+
+        @XmlAdapter(FUCAdapter::class)
+        class FUC(...) {
+        ...
+        }

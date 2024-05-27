@@ -1,0 +1,18 @@
+<FUCs>
+  <FUC>
+    <Codigo>M4310</Codigo>
+    <Nome>Programação Avançada</Nome>
+    <ECTS>6.0</ECTS>
+    <Observacoes>Observações sobre Programação Avançada</Observacoes>
+    <Avaliacoes>
+      <Componente>
+        <Nome>Quizzes</Nome>
+        <Peso>20</Peso>
+      </Componente>
+      <Componente>
+        <Nome>Projeto</Nome>
+        <Peso>80</Peso>
+      </Componente>
+    </Avaliacoes>
+  </FUC>
+</FUCs>

@@ -1,0 +1,9 @@
+Codigo: M4310, Nome: Programação Avançada, ECTS: 6.0, Observacoes: Observações sobre Programação Avançada
+  Componente 1: Nome: Quizzes, Peso: 20%
+  Componente 2: Nome: Projeto, Peso: 80%
+
+Codigo: 03782, Nome: Dissertação, ECTS: 42.0, Observacoes: Observações sobre Dissertação
+  Componente 1: Nome: Dissertação, Peso: 60%
+  Componente 2: Nome: Apresentação, Peso: 20%
+  Componente 3: Nome: Discussão, Peso: 20%
+

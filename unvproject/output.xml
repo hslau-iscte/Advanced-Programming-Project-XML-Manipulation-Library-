@@ -1,0 +1,17 @@
+<plano >
+  <FUC nome="Programação Avançada" ects="6.0" observacoes="la la..." avaliacao="[ComponenteAvaliacao(nome=Quizzes, peso=20), ComponenteAvaliacao(nome=Projeto, peso=80)]" codigo="M4310" type="advanced">
+    <description lang="en" value="This course covers advanced programming topics."/>
+  </FUC>
+  <curso descricao="Mestrado em Engenharia Informática">
+    <curso2 />
+    <curso3 />
+  </curso>
+  <funcionario code="M4310">
+    <nome value="Programação Avançada"/>
+    <ects />
+  </funcionario>
+  <funcionario code="03782">
+    <nome value="Dissertação"/>
+    <ects />
+  </funcionario>
+</plano>
